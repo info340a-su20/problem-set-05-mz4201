@@ -110,6 +110,7 @@ function validatePasswordMatch() {
   }
 }
 */
+
 let password1 = document.querySelector('#passwordInput')
 let password2 = document.querySelector('#passwordConfirmInput')
 function validatePasswordMatch(){
