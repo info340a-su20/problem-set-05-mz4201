@@ -96,7 +96,7 @@ function `validatePasswordMatch()`. This function should access both password
   `#passwordConfirmInput` element's error to be an empty string `""`.
   Also change the `#passwordConfirmFeedback` element so its `textContent` is
   also blank (an empty string).
-*/
+
 let password = document.querySelector('#passwordInput');
 let passwordConfirm = document.querySelector('#passwordConfirmInput');
 let passwordConfirmFeedback = document.querySelector('#passwordConfirmFeedback');
@@ -109,15 +109,26 @@ function validatePasswordMatch() {
     passwordConfirmFeedback.textContent = "";
   }
 }
-
+*/
+let password1 = document.querySelector('#passwordInput')
+let password2 = document.querySelector('#passwordConfirmInput')
+function validatePasswordMatch(){
+  if(password1.value == password2.value){
+    password2.setCustomValidity('');
+    document.querySelector('#passwordConfirmFeedback').textContent='';
+  }else{
+    password2.setCustomValidity('Passwords do not match');
+    document.querySelector('#passwordConfirmFeedback').textContent = 'Passwords do not match';
+  }
+}
 
 /* Assign the `validatePasswordMatch` function as the callback for `input` 
 events that happen on BOTH the `#passwordInput` and `#passwordConfirmInput`
 elements. You can select the elements individually or using `querySelectorAll()`.
 */
 
-passwordConfirm.addEventListener('input', validatePasswordMatch);
-passwordConfirmFeedback.addEventListener('input', validatePasswordMatch);
+password1.addEventListener('input', validatePasswordMatch);
+password2.addEventListener('input', validatePasswordMatch);
 
 /* Last you'll need to only enable the "submit" button if the form is valid. Use
 the `querySelectorAll()` method to select all 4 of the <input> elements. Use the
